@@ -65,7 +65,10 @@ WHERE YEAR(CURDATE())-f.annee_sortie <= 5
 ORDER BY f.annee_sortie DESC
 
 /* j. Nombre d’hommes et de femmes parmi les acteurs */ 
-
+SELECT p.sexe, COUNT(p.sexe) AS nombre
+FROM acteur a, personne p
+WHERE a.id_personne = p.id_personne
+GROUP BY p.sexe
 
 /* k. Liste des acteurs ayant plus de 50 ans (âge révolu et non révolu) */
 
