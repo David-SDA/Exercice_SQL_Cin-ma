@@ -1,5 +1,5 @@
 /* a. Informations d’un film (id_film) : titre, année, durée (au format HH:MM) et réalisateur */
-SELECT f.titre, f.annee_sortie, TIME_FORMAT(SEC_TO_TIME(f.duree), "%i:%s") AS durée, p.prenom, p.nom
+SELECT f.titre, f.annee_sortie, TIME_FORMAT(SEC_TO_TIME(f.duree*60), "%H:%i") AS durée, p.prenom, p.nom
 FROM film f, realisateur r, personne p
 WHERE f.id_realisateur = r.id_realisateur
 AND r.id_personne = p.id_personne
