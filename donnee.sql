@@ -53,7 +53,10 @@ AND a.id_acteur = 1
 ORDER BY f.annee_sortie DESC
 
 /* h. Listes des personnes qui sont à la fois acteurs et réalisateurs */
-
+SELECT p.prenom, p.nom
+FROM personne p, acteur a, realisateur r
+WHERE p.id_personne = a.id_personne
+AND a.id_personne = r.id_personne
 
 /* i. Liste des films qui ont moins de 5 ans (classés du plus récent au plus ancien) */
 
