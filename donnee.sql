@@ -28,7 +28,12 @@ GROUP BY g.id_genre
 ORDER BY nombre_film DESC
 
 /* e. Nombre de films par réalisateur (classés dans l’ordre décroissant) */
-
+SELECT p.prenom, p.nom, COUNT(f.id_film) AS nombre_film
+FROM film f, realisateur r, personne p
+WHERE f.id_realisateur = r.id_realisateur
+AND r.id_personne = p.id_personne
+GROUP BY p.id_personne
+ORDER BY nombre_film DESC
 
 /* f. Casting d’un film en particulier (id_film) : nom, prénom des acteurs + sexe */
 
