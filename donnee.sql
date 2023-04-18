@@ -71,6 +71,9 @@ WHERE a.id_personne = p.id_personne
 GROUP BY p.sexe
 
 /* k. Liste des acteurs ayant plus de 50 ans (âge révolu et non révolu) */
-
+SELECT p.prenom, p.nom, p.date_naissance, (TIMESTAMPDIFF(YEAR, p.date_naissance, CURRENT_DATE)) AS age
+FROM acteur a, personne p
+WHERE a.id_personne = p.id_personne
+AND (YEAR(CURRENT_DATE) - YEAR(p.date_naissance) -(RIGHT(CURRENT_DATE, 5) < RIGHT(p.date_naissance, 5))) >= 50
 
 /* l. Acteurs ayant joué dans 3 films ou plus */
