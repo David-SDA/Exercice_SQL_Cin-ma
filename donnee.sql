@@ -59,7 +59,10 @@ WHERE p.id_personne = a.id_personne
 AND a.id_personne = r.id_personne
 
 /* i. Liste des films qui ont moins de 5 ans (classés du plus récent au plus ancien) */
-
+SELECT f.titre, f.annee_sortie
+FROM film f
+WHERE YEAR(CURDATE())-f.annee_sortie <= 5
+ORDER BY f.annee_sortie DESC
 
 /* j. Nombre d’hommes et de femmes parmi les acteurs */ 
 
