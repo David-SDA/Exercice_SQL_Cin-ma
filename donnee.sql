@@ -12,7 +12,12 @@ WHERE f.duree > 135
 ORDER BY f.duree DESC
 
 /* c. Liste des films d’un réalisateur (en précisant l’année de sortie) */
-
+SELECT f.titre, f.annee_sortie
+FROM personne p, realisateur r, film f
+WHERE p.id_personne = r.id_personne
+AND r.id_realisateur = f.id_realisateur
+AND p.prenom = "Joss"
+AND p.nom = "Whedon"
 
 /* d. Nombre de films par genre (classés dans l’ordre décroissant) */
 
