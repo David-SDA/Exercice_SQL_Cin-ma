@@ -36,7 +36,12 @@ GROUP BY p.id_personne
 ORDER BY nombre_film DESC
 
 /* f. Casting d’un film en particulier (id_film) : nom, prénom des acteurs + sexe */
-
+SELECT p.prenom, p.nom, p.sexe
+FROM film f, jouer j, acteur a, personne p
+WHERE f.id_film = j.id_film
+AND j.id_acteur = a.id_acteur
+AND a.id_personne = p.id_personne
+AND f.id_film = 2
 
 /* g. Films tournés par un acteur en particulier (id_acteur) avec leur rôle et l’année de sortie (du film le plus récent au plus ancien) */
 
