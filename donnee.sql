@@ -20,7 +20,12 @@ AND p.prenom = "Joss"
 AND p.nom = "Whedon"
 
 /* d. Nombre de films par genre (classés dans l’ordre décroissant) */
-
+SELECT g.libelle, COUNT(f.id_film) AS nombre_film
+FROM film f, posseder po, genre g
+WHERE f.id_film = po.id_film
+AND po.id_genre = g.id_genre
+GROUP BY g.id_genre
+ORDER BY nombre_film DESC
 
 /* e. Nombre de films par réalisateur (classés dans l’ordre décroissant) */
 
