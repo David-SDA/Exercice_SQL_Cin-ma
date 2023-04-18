@@ -77,3 +77,8 @@ WHERE a.id_personne = p.id_personne
 HAVING age >= 50
 
 /* l. Acteurs ayant joué dans 3 films ou plus */
+SELECT j.id_acteur, COUNT(j.id_film) AS film_joue
+FROM jouer j, acteur a
+WHERE j.id_acteur = a.id_acteur
+GROUP BY j.id_acteur
+HAVING film_joue >=3
