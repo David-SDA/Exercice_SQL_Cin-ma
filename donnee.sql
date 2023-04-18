@@ -6,7 +6,10 @@ AND r.id_personne = p.id_personne
 AND f.id_film = 2
 
 /* b. Liste des films dont la durée excède 2h15 classés par durée (du plus long au plus court) */
-
+SELECT f.id_film, f.titre, f.annee_sortie, TIME_FORMAT(SEC_TO_TIME(f.duree*60), "%H:%i") AS durée
+FROM film f
+WHERE f.duree > 135
+ORDER BY f.duree DESC
 
 /* c. Liste des films d’un réalisateur (en précisant l’année de sortie) */
 
