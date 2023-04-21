@@ -61,9 +61,9 @@ a{
     color: #fff;
 }
 
-/***********************/
-/* Style de listeGenre */
-/***********************/
+/***************************/
+/* Style de viewListeGenre */
+/***************************/
 .tableau{
     display: flex;
     justify-content: center;
@@ -83,4 +83,14 @@ a{
 .tableau th, td{
     padding: 5px;
     text-align: center;
+}
+
+/****************************/
+/* Style de viewDetailGenre */
+/****************************/
+.lister{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
