@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    require_once("controller/Accueil/AccueilController.php");
+
+    $controleurAccueil = new AccueilController();
 
     if(isset($_GET['action'])){
 
@@ -7,7 +9,7 @@
         }
     }
     else{
-        require "view/Accueil/viewAccueil.php";
+        $controleurAccueil->allerAccueil();
     }
 
     ob_start();
