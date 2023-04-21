@@ -4,7 +4,56 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
 header{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    background-color: #d9d9d9;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.titre{
+    margin-left: 2vw;
+}
+
+.boutonTitre{
+    font-size: 2em;
+    font-weight: 700;
+    height: 10vh;
+    width: 10vw;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.boutonTitre:hover{
+    background-color: #1b1b1b;
+    color: #fff;
+}
+
+.navigation{
+    display: flex;
+    flex-direction: row;
+}
+.navigation button{
+    font-size: 1.5em;
+    font-weight: 500;
+    height: 10vh;
+    width: 12vw;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.navigation button:hover{
+    background-color: #1b1b1b;
+    color: #fff;
 }
