@@ -17,10 +17,12 @@
             <a href="#"><button>ACTEURS</button></a>
             <a href="#"><button>RÉALISATEURS</button></a>
             <a href="#"><button>RÔLES</button></a>
-            <a href="#"><button>GENRES</button></a>
+            <a href="view/Genre/viewListeGenre.php"><button>GENRES</button></a>
         </nav>
     </header>
     <body>
-        <?= $contenu ?>
+        <main>
+            <?= $contenu ?>
+        </main>
     </body>
 </html>
