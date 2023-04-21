@@ -61,9 +61,9 @@ a{
     color: #fff;
 }
 
-/***************************/
-/* Style de viewListeGenre */
-/***************************/
+/**********************/
+/* Style d'un tableau */
+/**********************/
 .tableau{
     display: flex;
     justify-content: center;
