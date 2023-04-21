@@ -88,3 +88,25 @@ a{
 .lienListe:hover{
     color: rgb(54, 96, 234);
 }
+
+/**************************/
+/* style des informations */
+/**************************/
+
+.info{
+    margin: 1vh 10vw auto 10vw;
+    width: 80vw;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.info h2{
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #000;
+}
+.info h3{
+    padding: 10px;
+}
+.info p{
+    padding: 5px;
+}
