@@ -9,12 +9,14 @@
             </thead>
             <tbody>
                 <?php
+                    $i = 1;
                     foreach($genres as $genre){
                 ?>
                     <tr>
-                        <td><a href="" class="lienListe"><?= $genre["libelle"] ?></a></td>
+                        <td><a href="index.php?action=detailsGenre&id=<?= $i ?>" class="lienListe"><?= $genre["libelle"] ?></a></td>
                     </tr>
                 <?php
+                    $i++;
                 }
                 ?>
             </tbody>
