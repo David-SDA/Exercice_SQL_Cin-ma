@@ -12,8 +12,13 @@
         /* On effectue un switch sur celle-ci */
         switch($_GET['action']){
             /* Action pour les genres */
-            case "listerGenre":
+            case "listerGenre": // lister les genres
                 $controleurGenre->listerGenres();
+                break;
+            
+            case "detailsGenre": // détails d'un genre
+                $controleurGenre->detailsGenre();
+                break;
         }
     }
     else{ // Sinon cela veut dire qu'on va à l'acceuil
