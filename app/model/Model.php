@@ -19,6 +19,7 @@
         public function executerRequete($sqlQuery){
             $statement = $this->bdd->prepare($sqlQuery);
             $statement->execute();
+            return $statement->fetchAll();
         }
     }
     

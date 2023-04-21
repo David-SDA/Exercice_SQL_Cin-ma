@@ -1,6 +1,5 @@
 <?php
     ob_start();
-    require "../../model/Genre/modelListeGenre.php";
 ?>
 
     <div class="tableau">
@@ -10,10 +9,10 @@
             </thead>
             <tbody>
                 <?php
-                    foreach($genres as $g){
+                    foreach($genres as $genre){
                 ?>
                     <tr>
-                        <td><a href="#"><?= $g["libelle"] ?></a></td>
+                        <td><a href="" class="lienListe"><?= $genre["libelle"] ?></a></td>
                     </tr>
                 <?php
                 }
@@ -24,5 +23,5 @@
 
 <?php
     $contenu = ob_get_clean();
-    require "../template.php";
+    require("view/template.php");
 ?>

@@ -11,13 +11,13 @@
     <title>Cinéma</title>
 </head>
     <header>
-        <a href="http://localhost/David/Exercice_SQL_Cinema/app" class="titre"><button class="boutonTitre">CINÉMA</button></a>
+        <a href="index.php" class="titre"><button class="boutonTitre">CINÉMA</button></a>
         <nav class="navigation">
             <a href="#"><button>FILMS</button></a>
             <a href="#"><button>ACTEURS</button></a>
             <a href="#"><button>RÉALISATEURS</button></a>
             <a href="#"><button>RÔLES</button></a>
-            <a href="#"><button>GENRES</button></a>
+            <a href="index.php?action=listerGenre"><button>GENRES</button></a>
         </nav>
     </header>
     <body>

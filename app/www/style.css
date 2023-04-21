@@ -85,12 +85,6 @@ a{
     text-align: center;
 }
 
-/****************************/
-/* Style de viewDetailGenre */
-/****************************/
-.lister{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.lienListe:hover{
+    color: rgb(54, 96, 234);
 }
