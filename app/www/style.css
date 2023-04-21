@@ -22,6 +22,9 @@ a{
     color: black;
 }
 
+/*********************/
+/* Style du template */
+/*********************/
 .titre{
     margin-left: 2vw;
 }
@@ -56,4 +59,28 @@ a{
 .navigation button:hover{
     background-color: #1b1b1b;
     color: #fff;
+}
+
+/***********************/
+/* Style de listeGenre */
+/***********************/
+.tableau{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-top: 1vh;
+}
+.tableau table{
+    border: 1px solid #000;
+    border-collapse: collapse;
+    width: 80vw;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.tableau thead, tbody, th, tr, td{
+    border: 1px solid #000;
+}
+.tableau th, td{
+    padding: 5px;
+    text-align: center;
 }
