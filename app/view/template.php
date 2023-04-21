@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/../style.css">
+    <link rel="stylesheet" href="www/style.css">
     <title>Cinéma</title>
 </head>
     <header>
+        <h1>CINÉMA</h1>
         <nav>
-            <h1>CINÉMA</h1>
             <a href="#">
                 <button>FILMS</button>
             </a>
@@ -25,7 +25,7 @@
             <a href="#">
                 <button>GENRES</button>
             </a>
-        </nav>
+            </nav>
     </header>
     <body>
         
