@@ -19,11 +19,18 @@
             return $this->bdd;
         }
 
-        /* Fonction servant à executer une requête SQL */
+        /* Fonction servant à executer une requête SQL avec plusieurs lignes */
         public function executerRequete($sqlQuery){
             $statement = $this->bdd->prepare($sqlQuery);
             $statement->execute();
             return $statement->fetchAll();
+        }
+
+        /* Fonction servant à executer une requête SQL une ligne */
+        public function executerRequeteUneLigne($sqlQuery){
+            $statement = $this->bdd->prepare($sqlQuery);
+            $statement->execute();
+            return $statement->fetch();
         }
     }
     
