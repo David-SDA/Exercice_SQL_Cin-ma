@@ -72,13 +72,16 @@ a{
     margin-top: 1vh;
 }
 .tableau table{
-    border: 1px solid #000;
     border-collapse: collapse;
+    border-radius: 10px;
     width: 80vw;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.tableau thead, tbody, th, tr, td{
-    border: 1px solid #000;
+.tableau thead{
+    border-bottom: 1px solid #000;
+}
+.tableau th{
+    font-size: 1.5em;
 }
 .tableau th, td{
     padding: 5px;
@@ -105,8 +108,10 @@ a{
     border-bottom: 1px solid #000;
 }
 .info h3{
+    text-align: center;
     padding: 10px;
 }
 .info p{
+    text-align: center;
     padding: 5px;
 }

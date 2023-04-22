@@ -8,7 +8,7 @@
         <?php
             foreach($filmsDansGenre as $film){
         ?>
-            <p>- <?= $film["titre"] ?></p>
+            <p><?= $film["titre"] ?></p>
         <?php        
             }
         ?>
