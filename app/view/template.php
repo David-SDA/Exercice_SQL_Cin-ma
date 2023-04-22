@@ -16,8 +16,8 @@
             <a href="#"><button>FILMS</button></a>
             <a href="#"><button>ACTEURS</button></a>
             <a href="#"><button>RÉALISATEURS</button></a>
-            <a href="#"><button>RÔLES</button></a>
-            <a href="index.php?action=listerGenre"><button>GENRES</button></a>
+            <a href="index.php?action=listerRoles"><button>RÔLES</button></a>
+            <a href="index.php?action=listerGenres"><button>GENRES</button></a>
         </nav>
     </header>
     <body>
