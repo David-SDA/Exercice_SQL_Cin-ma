@@ -6,7 +6,7 @@
 
         public function listerFilms(){
             $donnee = new Model();
-            $requete = "SELECT f.titre, f.annee_sortie, TIME_FORMAT(SEC_TO_TIME(f.duree*60), '%H h %i') AS duree, f.synopsis, f.note, p.prenom AS prenom, p.nom AS nom
+            $requete = "SELECT f.titre, f.annee_sortie, TIME_FORMAT(SEC_TO_TIME(f.duree*60), '%H h %i') AS duree, f.synopsis, f.note, p.prenom, p.nom
                         FROM film f, realisateur r, personne p
                         WHERE f.id_realisateur = r.id_realisateur
                         AND r.id_personne = p.id_personne";
