@@ -16,14 +16,14 @@
             $requeteRole = "SELECT nom_role FROM role WHERE id_role = ". $_GET["id"];
             $role = $donnee->executerRequeteUneLigne($requeteRole);
             
-            $requeteRole = "SELECT f.titre, p.prenom, p.nom
+            $requeteActeur = "SELECT f.titre, p.prenom, p.nom
                             FROM film f, jouer j, role r, acteur a, personne p
                             WHERE f.id_film = j.id_film
                             AND j.id_role = r.id_role
                             AND j.id_acteur = a.id_acteur 
                             AND a.id_personne = p.id_personne
                             AND r.id_role = " . $_GET["id"];
-            $acteursDansRole = $donnee->executerRequete($requeteRole);
+            $acteursDansRole = $donnee->executerRequete($requeteActeur);
             require("view/Role/viewDetailsRole.php");
         }
     }

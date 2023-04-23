@@ -13,6 +13,21 @@
             require("view/Realisateur/viewListeRealisateur.php");
         }
 
+        public function detailsRealisateur(){
+            $donnee = new Model();
+            $requeteRealisateur = "SELECT p.prenom, p.nom, p.sexe, DATE_FORMAT(p.date_naissance, '%d/%m/%Y') AS date_naissance
+                                   FROM realisateur r, personne p
+                                   WHERE r.id_personne = p.id_personne
+                                   AND r.id_realisateur = " . $_GET["id"];
+            $realisateur = $donnee->executerRequeteUneLigne($requeteRealisateur);
+            
+            $requeteFilms = "SELECT f.titre
+                             FROM realisateur r, film f
+                             WHERE r.id_realisateur = f.id_realisateur
+                             AND r.id_realisateur = " . $_GET["id"];
+            $filmsDansRealisateur = $donnee->executerRequete($requeteFilms);
+            require("view/Realisateur/viewDetailsRealisateur.php");
+        }
     }
 
 ?>

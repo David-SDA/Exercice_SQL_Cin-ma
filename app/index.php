@@ -33,6 +33,10 @@
             case "listerRealisateurs": // lister les réalisateurs
                 $controleurRealisateur->listerRealisateurs();
                 break;
+            
+            case "detailsRealisateur": // détails d'un réalisateur
+                $controleurRealisateur->detailsRealisateur();
+                break;
 
             /* Action pour les rôles */
             case "listerRoles": // lister les rôles
@@ -41,7 +45,7 @@
             
             case "detailsRole": // détails d'un rôle
                 $controleurRole->detailsRole();
-                 break;
+                break;
 
             /* Action pour les genres */
             case "listerGenres": // lister les genres

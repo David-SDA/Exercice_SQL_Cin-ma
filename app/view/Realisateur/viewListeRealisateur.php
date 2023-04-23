@@ -19,7 +19,7 @@
                 ?>
                     <tr class="ligne">
                         <td>
-                            <a href="#" class="lienListe"><?= $realisateur["prenom"] . " " . $realisateur ["nom"] ?></a>
+                            <a href="index.php?action=detailsRealisateur&id=<?= $i ?>" class="lienListe"><?= $realisateur["prenom"] . " " . $realisateur ["nom"] ?></a>
                         </td>
                         <td>
                             <?= $realisateur["sexe"] ?>
