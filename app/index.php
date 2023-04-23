@@ -1,6 +1,7 @@
 <?php
     /* Ajout de tout les contrôleurs */
     require_once("controller/AccueilController.php");
+    require_once("controller/FilmController.php");
     require_once("controller/ActeurController.php");
     require_once("controller/RealisateurController.php");
     require_once("controller/RoleController.php");
@@ -8,6 +9,7 @@
 
     /* Création des objets contrôleurs */
     $controleurAccueil = new AccueilController();
+    $controleurFilm = new FilmController();
     $controleurActeur = new ActeurController();
     $controleurRealisateur = new RealisateurController();
     $controleurRole = new RoleController();
@@ -17,6 +19,11 @@
     if(isset($_GET['action'])){
         /* On effectue un switch sur celle-ci */
         switch($_GET['action']){
+            /* Action pour les films */
+            case "listerFilms": // lister les films
+                $controleurFilm->listerFilms();
+                break;
+
             /* Action pour les acteurs */
             case "listerActeurs": // lister les acteurs
                 $controleurActeur->listerActeurs();
