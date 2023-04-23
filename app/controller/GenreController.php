@@ -17,10 +17,10 @@
             $genre = $donnee->executerRequeteUneLigne($requeteGenre);
             
             $requeteFilm = "SELECT f.titre
-            FROM posseder p, film f, genre g
-            WHERE p.id_film = f.id_film
-            AND p.id_genre = g.id_genre
-            AND g.id_genre = " . $_GET["id"];
+                            FROM posseder p, film f, genre g
+                            WHERE p.id_film = f.id_film
+                            AND p.id_genre = g.id_genre
+                            AND g.id_genre = " . $_GET["id"];
             $filmsDansGenre = $donnee->executerRequete($requeteFilm);
             require("view/Genre/viewDetailsGenre.php");
         }

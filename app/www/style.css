@@ -76,6 +76,8 @@ a{
     border-radius: 10px;
     width: 80vw;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    table-layout: fixed;
+    overflow: hidden;
 }
 .tableau thead{
     border-bottom: 1px solid #000;
@@ -86,6 +88,17 @@ a{
 .tableau th, td{
     padding: 5px;
     text-align: center;
+}
+
+.titreColonnes{
+    border-bottom: 1px solid #000;
+}
+.titreColonnes td{
+    font-weight: 600;
+}
+
+.ligne{
+    border-bottom: 1px solid #aeaeae;
 }
 
 .lienListe:hover{
