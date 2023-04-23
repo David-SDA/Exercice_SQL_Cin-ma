@@ -13,7 +13,7 @@
                     foreach($roles as $role){
                 ?>
                     <tr>
-                        <td><a href="index.php" class="lienListe"><?= $role["nom_role"] ?></a></td>
+                        <td><a href="index.php?action=detailsRole&id=<?= $i ?>" class="lienListe"><?= $role["nom_role"] ?></a></td>
                     </tr>
                 <?php
                     $i++;

@@ -38,6 +38,10 @@
             case "listerRoles": // lister les rôles
                 $controleurRole->listerRoles();
                 break;
+            
+            case "detailsRole": // détails d'un rôle
+                $controleurRole->detailsRole();
+                 break;
 
             /* Action pour les genres */
             case "listerGenres": // lister les genres
