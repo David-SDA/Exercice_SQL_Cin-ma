@@ -1,7 +1,7 @@
 <?php
     require_once("model/Model.php");
 
-    /* On crée un contrôleur pour gérer les action en rapport aux genres */
+    /* On crée un contrôleur pour gérer les action en rapport aux réalisateurs */
     class RealisateurController{
 
         public function listerRealisateurs(){

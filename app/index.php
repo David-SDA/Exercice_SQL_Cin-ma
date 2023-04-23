@@ -1,12 +1,14 @@
 <?php
     /* Ajout de tout les contrôleurs */
     require_once("controller/AccueilController.php");
+    require_once("controller/ActeurController.php");
     require_once("controller/RealisateurController.php");
     require_once("controller/RoleController.php");
     require_once("controller/GenreController.php");
 
     /* Création des objets contrôleurs */
     $controleurAccueil = new AccueilController();
+    $controleurActeur = new ActeurController();
     $controleurRealisateur = new RealisateurController();
     $controleurRole = new RoleController();
     $controleurGenre = new GenreController();
@@ -15,6 +17,11 @@
     if(isset($_GET['action'])){
         /* On effectue un switch sur celle-ci */
         switch($_GET['action']){
+            /* Action pour les acteurs */
+            case "listerActeurs": // lister les acteurs
+                $controleurActeur->listerActeurs();
+                break;
+
             /* Action pour les réalisateurs */
             case "listerRealisateurs": // lister les réalisateurs
                 $controleurRealisateur->listerRealisateurs();
