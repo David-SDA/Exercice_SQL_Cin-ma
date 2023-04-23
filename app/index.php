@@ -29,6 +29,10 @@
                 $controleurActeur->listerActeurs();
                 break;
 
+            case "detailsActeur": // détails d'un acteur
+                $controleurActeur->detailsActeur();
+                break;
+
             /* Action pour les réalisateurs */
             case "listerRealisateurs": // lister les réalisateurs
                 $controleurRealisateur->listerRealisateurs();

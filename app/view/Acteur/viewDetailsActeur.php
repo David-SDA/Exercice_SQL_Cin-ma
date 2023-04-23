@@ -3,13 +3,13 @@
 ?>
 
     <div class="info">
-        <h2><?= $realisateur["prenom"] . " " . $realisateur["nom"] ?></h2>
+        <h2><?= $acteur["prenom"] . " " . $acteur["nom"] ?></h2>
         <h3>DÉTAILS</h3>
-        <p><?= $realisateur["sexe"] ?></p>
-        <p class="ligne"><?= $realisateur["date_naissance"] ?></p>
+        <p><?= $acteur["sexe"] ?></p>
+        <p class="ligne"><?= $acteur["date_naissance"] ?></p>
         <h3>FILMOGRAPHIE</h3>
         <?php
-            foreach($filmsDansRealisateur as $film){
+            foreach($filmsDansActeur as $film){
         ?>
             <p><a href="#" class="lienListe"><?= $film["titre"] ?></a></p>
         <?php        
