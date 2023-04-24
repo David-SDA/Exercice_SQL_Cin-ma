@@ -54,6 +54,17 @@
             require("view/Film/viewAjouterFilm.php");
         }
 
+        public function pageAjouterCasting(){
+            $pdo = Connect::seConnecter();
+            $requeteFilm = $pdo->query("SELECT f.titre
+                                    FROM film f");
+            $requeteActeur = $pdo->query("SELECT p.prenom, p.nom
+                                          FROM personne p, acteur a
+                                          WHERE p.id_personne = a.id_personne");
+            $requeteRole = $pdo->query("SELECT nom_role
+                                        FROM role");
+            require("view/Film/viewAjouterCasting.php");
+        }
     }
 
 ?>

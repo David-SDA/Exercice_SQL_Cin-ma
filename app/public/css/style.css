@@ -196,3 +196,13 @@ a{
 .nomChamp{
     margin-top: 1vh;
 }
+
+.boutonCasting{
+    margin-top: -5vh;
+    margin-left: 70vw;
+    font-family: 'Poppins', sans-serif;
+    background-color: #d9d9d9;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}

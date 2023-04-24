@@ -64,6 +64,7 @@
             </tbody>
         </table>
         <a href="index.php?action=pageAjouterFilm" class="bouton">+</a>
+        <a href="index.php?action=pageAjouterCasting" class="boutonCasting">Ajouter un casting</a>
     </div>
 
 <?php
