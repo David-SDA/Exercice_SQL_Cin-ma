@@ -21,6 +21,7 @@
                 ?>
             </tbody>
         </table>
+        <a href="index.php?action=pageAjouterRole" class="bouton">+</a>
     </div>
 
 <?php

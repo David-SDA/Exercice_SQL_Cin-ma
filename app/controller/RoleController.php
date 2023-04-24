@@ -24,5 +24,10 @@
                             AND r.id_role = " . $_GET["id"]);
             require("view/Role/viewDetailsRole.php");
         }
+
+        public function pageAjouterRole(){
+            require("view/Role/viewAjouterRole.php");
+        }
+
     }
 ?>

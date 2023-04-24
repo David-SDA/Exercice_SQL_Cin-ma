@@ -57,6 +57,10 @@
             case "detailsRole": // détails d'un rôle
                 $ctrlRole->detailsRole();
                 break;
+            
+            case "pageAjouterRole": // aller à la page pour ajouter un rôle
+                $ctrlRole->pageAjouterRole();
+                break;
 
             /* Action pour les genres */
             case "listerGenres": // lister les genres
