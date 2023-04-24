@@ -66,6 +66,10 @@
             case "detailsGenre": // détails d'un genre
                 $ctrlGenre->detailsGenre();
                 break;
+            
+            case "pageAjouterGenre": // aller à la page pour ajouter un genre
+                $ctrlGenre->pageAjouterGenre();
+                break;
         }
     }
     else{ // Sinon cela veut dire qu'on va à l'acceuil

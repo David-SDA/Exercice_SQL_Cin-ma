@@ -22,6 +22,10 @@
                             AND g.id_genre = " . $_GET["id"]);
             require("view/Genre/viewDetailsGenre.php");
         }
+
+        public function pageAjouterGenre(){
+            require("view/Genre/viewAjouterGenre.php");
+        }
     }
 
 ?>
