@@ -1,18 +1,22 @@
 <?php
     /* Ajout de tout les contrôleurs */
-    require_once("controller/AccueilController.php");
-    require_once("controller/FilmController.php");
-    require_once("controller/ActeurController.php");
-    require_once("controller/RealisateurController.php");
-    require_once("controller/RoleController.php");
-    require_once("controller/GenreController.php");
+    use Controller\AccueilController;
+    use Controller\FilmController;
+    use Controller\ActeurController;
+    use Controller\RealisateurController;
+    use Controller\RoleController;
+    use Controller\GenreController;
+
+    spl_autoload_register(function($class_name){
+        include $class_name . '.php';
+    });
 
     /* Création des objets contrôleurs */
-    $controleurAccueil = new AccueilController();
-    $controleurFilm = new FilmController();
-    $controleurActeur = new ActeurController();
-    $controleurRealisateur = new RealisateurController();
-    $controleurRole = new RoleController();
+    $ctrlAccueil = new AccueilController();
+    $ctrlFilm = new FilmController();
+    $ctrlActeur = new ActeurController();
+    $ctrlRealisateur = new RealisateurController();
+    $ctrlRole = new RoleController();
     $controleurGenre = new GenreController();
 
     /* Si on a une action définie */
@@ -21,50 +25,50 @@
         switch($_GET['action']){
             /* Action pour les films */
             case "listerFilms": // lister les films
-                $controleurFilm->listerFilms();
+                $ctrlFilm->listerFilms();
                 break;
             case "detailsFilm": // détails d'un film
-                $controleurFilm->detailsFilm();
+                $ctrlFilm->detailsFilm();
                 break;
 
             /* Action pour les acteurs */
             case "listerActeurs": // lister les acteurs
-                $controleurActeur->listerActeurs();
+                $ctrlActeur->listerActeurs();
                 break;
 
             case "detailsActeur": // détails d'un acteur
-                $controleurActeur->detailsActeur();
+                $ctrlActeur->detailsActeur();
                 break;
 
             /* Action pour les réalisateurs */
             case "listerRealisateurs": // lister les réalisateurs
-                $controleurRealisateur->listerRealisateurs();
+                $ctrlRealisateur->listerRealisateurs();
                 break;
             
             case "detailsRealisateur": // détails d'un réalisateur
-                $controleurRealisateur->detailsRealisateur();
+                $ctrlRealisateur->detailsRealisateur();
                 break;
 
             /* Action pour les rôles */
             case "listerRoles": // lister les rôles
-                $controleurRole->listerRoles();
+                $ctrlRole->listerRoles();
                 break;
             
             case "detailsRole": // détails d'un rôle
-                $controleurRole->detailsRole();
+                $ctrlRole->detailsRole();
                 break;
 
             /* Action pour les genres */
             case "listerGenres": // lister les genres
-                $controleurGenre->listerGenres();
+                $ctrlGenre->listerGenres();
                 break;
             
             case "detailsGenre": // détails d'un genre
-                $controleurGenre->detailsGenre();
+                $ctrlGenre->detailsGenre();
                 break;
         }
     }
     else{ // Sinon cela veut dire qu'on va à l'acceuil
-        $controleurAccueil->allerAccueil();
+        $ctrlAccueil->allerAccueil();
     }
 ?>
