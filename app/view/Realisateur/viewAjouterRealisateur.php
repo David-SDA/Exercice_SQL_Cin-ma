@@ -30,7 +30,7 @@
                 <label for="Non">Non</label>
             </div>
 
-            <input type="submit" name="submitRole" value="Ajouter le réalisateur">
+            <input type="submit" name="submitRealisateur" value="Ajouter le réalisateur">
         </form>
     </div>
 

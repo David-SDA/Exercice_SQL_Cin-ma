@@ -30,6 +30,36 @@
         public function pageAjouterRealisateur(){
             require("view/Realisateur/viewAjouterRealisateur.php");
         }
+
+        public function ajouterRealisateur(){
+            if(isset($_POST["submitRealisateur"])){
+
+                $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $sexe = filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $date_naissance = filter_input(INPUT_POST, "date_naissance", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $estActeur = filter_input(INPUT_POST, "estActeur", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+                if($prenom && $nom && $sexe && $date_naissance && $estActeur){
+                    $pdo = Connect::seConnecter();
+                    $requetePersonne = $pdo->prepare("INSERT INTO personne (prenom, nom, sexe, date_naissance)
+                                              VALUES ('$prenom', '$nom', '$sexe', '$date_naissance')");
+                    $requetePersonne->execute();
+
+                    $id = $pdo->lastInsertId();
+                    $requeteRealisateur = $pdo->prepare("INSERT INTO realisateur (id_personne)
+                                                         VALUES ($id)");
+                    $requeteRealisateur->execute();
+
+                    if($estActeur == "Oui"){
+                        $requete = $pdo->prepare("INSERT INTO acteur (id_personne)
+                                                  VALUES ($id)");
+                        $requete->execute();
+                    }
+                }
+            }
+            require("view/Realisateur/viewAjouterRealisateur.php");
+        }
     }
 
 ?>
