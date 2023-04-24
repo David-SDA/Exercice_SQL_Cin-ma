@@ -37,7 +37,7 @@
             </select>
             
             <label for="genreFilm" class="nomChamp">Genre* :</label>
-            <select name="genreFilm" id="genreFilm" multiple required>
+            <select name="genreFilm[]" id="genreFilm" multiple required>
             <?php
                 $i = 1;
                 foreach($requeteGenre->fetchAll() as $genre){

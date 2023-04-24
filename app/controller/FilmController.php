@@ -50,6 +50,10 @@
             require("view/Film/viewAjouterFilm.php");
         }
 
+        public function ajouterFilm(){
+            require("view/Film/viewAjouterFilm.php");
+        }
+
     }
 
 ?>

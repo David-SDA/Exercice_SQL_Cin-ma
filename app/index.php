@@ -35,6 +35,10 @@
                 $ctrlFilm->pageAjouterFilm();
                 break;
 
+            case "ajouterFilm": // ajouter un film
+                $ctrlFilm->ajouterFilm();
+                break;
+
             /* Action pour les acteurs */
             case "listerActeurs": // lister les acteurs
                 $ctrlActeur->listerActeurs();
