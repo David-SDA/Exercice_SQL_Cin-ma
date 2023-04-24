@@ -26,10 +26,12 @@
             <label for="realisateurFilm" class="nomChamp">Réalisateur* :</label>
             <select name="realisateurFilm" id="realisateurFilm" required>
                 <?php
+                    $i = 1;
                     foreach($requeteRealisateur->fetchAll() as $realisateur){
                 ?>
-                    <option value="<?= $realisateur["prenom"] . "_" . $realisateur["nom"] ?>"><?= $realisateur["prenom"] . " " . $realisateur["nom"] ?></option>
+                    <option value="<?= $i ?>"><?= $realisateur["prenom"] . " " . $realisateur["nom"] ?></option>
                 <?php
+                        $i++;
                     }
                 ?>
             </select>
@@ -37,10 +39,12 @@
             <label for="genreFilm" class="nomChamp">Genre* :</label>
             <select name="genreFilm" id="genreFilm" multiple required>
             <?php
+                $i = 1;
                 foreach($requeteGenre->fetchAll() as $genre){
             ?>
-                <option value="<?= $genre["libelle"] ?>"><?= $genre["libelle"] ?></option>
+                <option value="<?= $i ?>"><?= $genre["libelle"] ?></option>
             <?php
+                    $i++;
                 }
             ?>
             <input type="submit" name="submitActeur" value="Ajouter l'acteur">
