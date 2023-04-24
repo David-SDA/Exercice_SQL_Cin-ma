@@ -66,6 +66,7 @@
     </div>
 
 <?php
+    $titre = "Liste des films";
     $contenu = ob_get_clean();
     require("view/template.php");
 ?>

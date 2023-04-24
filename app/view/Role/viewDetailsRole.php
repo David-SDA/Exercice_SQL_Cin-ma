@@ -18,6 +18,7 @@
     </div>
 
 <?php
+    $titre = $role["nom_role"];
     $contenu = ob_get_clean();
     require("view/template.php");
 ?>

@@ -67,6 +67,7 @@
     </article>
 
 <?php
+    $titre = $film["titre"];
     $contenu = ob_get_clean();
     require("view/template.php");
 ?>

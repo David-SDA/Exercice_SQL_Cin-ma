@@ -24,6 +24,7 @@
     </div>
 
 <?php
+    $titre = "Liste des genres";
     $contenu = ob_get_clean();
     require("view/template.php");
 ?>

@@ -18,6 +18,7 @@
     </div>
 
 <?php
+    $titre = $genre["libelle"];
     $contenu = ob_get_clean();
     require("view/template.php");
 ?>

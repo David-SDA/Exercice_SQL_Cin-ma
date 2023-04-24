@@ -21,6 +21,7 @@
     </div>
 
 <?php
+    $titre = $acteur["prenom"] . " " . $acteur["nom"];
     $contenu = ob_get_clean();
     require("view/template.php");
 ?>

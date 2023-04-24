@@ -38,6 +38,7 @@
     </div>
 
 <?php
+    $titre = "Liste des réalisateurs";
     $contenu = ob_get_clean();
     require("view/template.php");
 ?>
