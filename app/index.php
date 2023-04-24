@@ -44,6 +44,10 @@
                 $ctrlActeur->pageAjouterActeur();
                 break;
 
+            case "ajouterActeur": // ajouter un acteur
+                $ctrlActeur->ajouterActeur();
+                break;    
+            
             /* Action pour les réalisateurs */
             case "listerRealisateurs": // lister les réalisateurs
                 $ctrlRealisateur->listerRealisateurs();

@@ -32,6 +32,35 @@
             require("view/Acteur/viewAjouterActeur.php");
         }
 
+        public function ajouterActeur(){
+            if(isset($_POST["submitActeur"])){
+
+                $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $sexe = filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $date_naissance = filter_input(INPUT_POST, "date_naissance", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $estRealisateur = filter_input(INPUT_POST, "estRealisateur", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+                if($prenom && $nom && $sexe && $date_naissance && $estRealisateur){
+                    $pdo = Connect::seConnecter();
+                    $requetePersonne = $pdo->prepare("INSERT INTO personne (prenom, nom, sexe, date_naissance)
+                                              VALUES ('$prenom', '$nom', '$sexe', '$date_naissance')");
+                    $requetePersonne->execute();
+
+                    $id = $pdo->lastInsertId();
+                    $requeteActeur = $pdo->prepare("INSERT INTO acteur (id_personne)
+                                                         VALUES ($id)");
+                    $requeteActeur->execute();
+
+                    if($estRealisateur == "Oui"){
+                        $requete = $pdo->prepare("INSERT INTO realisateur (id_personne)
+                                                  VALUES ($id)");
+                        $requete->execute();
+                    }
+                }
+            }
+            require("view/Acteur/viewAjouterActeur.php");
+        }
     }
 
 ?>
