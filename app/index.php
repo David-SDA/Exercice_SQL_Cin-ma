@@ -70,6 +70,10 @@
             case "pageAjouterGenre": // aller à la page pour ajouter un genre
                 $ctrlGenre->pageAjouterGenre();
                 break;
+            
+            case "ajouterGenre": // ajouter un genre
+                $ctrlGenre->AjouterGenre();
+                break;
         }
     }
     else{ // Sinon cela veut dire qu'on va à l'acceuil

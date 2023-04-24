@@ -26,6 +26,18 @@
         public function pageAjouterGenre(){
             require("view/Genre/viewAjouterGenre.php");
         }
+
+        public function ajouterGenre(){
+            if(isset($_POST["submitGenre"])){
+                $genre = filter_input(INPUT_POST, "nom_genre", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                if($genre){
+                    $pdo = Connect::seConnecter();
+                    $requete = $pdo->prepare("INSERT INTO genre (libelle) VALUES ('$genre')");
+                    $requete->execute();
+                }
+            }
+            require("view/Genre/viewAjouterGenre.php");
+        }
     }
 
 ?>

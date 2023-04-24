@@ -4,10 +4,10 @@
 
     <div class=formulaire>
         <h2>Ajouter un genre</h2>
-        <form action="">
+        <form enctype='multipart/form-data' action="index.php?action=ajouterGenre" method="post">
             <label for="nom_genre">Nom du genre</label>
             <input type="text" name="nom_genre" id="nom_genre" required>
-            <input type="submit" value="Ajouter le genre">
+            <input type="submit" name="submitGenre" value="Ajouter le genre">
         </form>
     </div>
 
