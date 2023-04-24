@@ -15,7 +15,7 @@
                 </tr>
                 <?php
                     $i = 1;
-                    foreach($realisateurs as $realisateur){
+                    foreach($requete->fetchAll() as $realisateur){
                 ?>
                     <tr class="ligne">
                         <td>

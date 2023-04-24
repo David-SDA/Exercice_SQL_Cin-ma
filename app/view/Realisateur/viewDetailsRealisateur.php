@@ -3,13 +3,16 @@
 ?>
 
     <div class="info">
+        <?php
+            $realisateur = $requeteRealisateur->fetch();
+        ?>
         <h2><?= $realisateur["prenom"] . " " . $realisateur["nom"] ?></h2>
         <h3>DÉTAILS</h3>
         <p><?= $realisateur["sexe"] ?></p>
         <p class="ligne"><?= $realisateur["date_naissance"] ?></p>
         <h3>FILMOGRAPHIE</h3>
         <?php
-            foreach($filmsDansRealisateur as $film){
+            foreach($requeteFilms->fetchAll() as $film){
         ?>
             <p><a href="#" class="lienListe"><?= $film["titre"] ?></a></p>
         <?php        
