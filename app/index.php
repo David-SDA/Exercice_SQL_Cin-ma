@@ -43,6 +43,10 @@
                 $ctrlFilm->pageAjouterCasting();
                 break;
 
+            case "ajouterCasting": // ajouter un casting
+                $ctrlFilm->ajouterCasting();
+                break;
+
             /* Action pour les acteurs */
             case "listerActeurs": // lister les acteurs
                 $ctrlActeur->listerActeurs();

@@ -65,6 +65,22 @@
                                         FROM role");
             require("view/Film/viewAjouterCasting.php");
         }
+
+        public function ajouterCasting(){
+            if($_POST["submitCasting"]){
+
+                $film = filter_input(INPUT_POST, "film", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $acteur = filter_input(INPUT_POST, "acteur", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $role = filter_input(INPUT_POST, "role", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                
+                if($film && $acteur && $role){
+                    $pdo = Connect::seConnecter();
+                    $requete = $pdo->query("INSERT INTO jouer (id_film, id_acteur, id_role)
+                                            VALUES (" . $_POST["film"] . ", " . $_POST["acteur"] . ", " . $_POST["role"] . " )");
+                }
+            }
+            require("view/Accueil/viewAccueil.php");
+        }
     }
 
 ?>
