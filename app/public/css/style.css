@@ -66,6 +66,7 @@ a{
 /**********************/
 .tableau{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: auto;
@@ -88,6 +89,15 @@ a{
 .tableau th, td{
     padding: 5px;
     text-align: center;
+}
+.tableau .bouton{
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    background-color: #84FF59;
+    border-radius: 10px;
 }
 
 .titreColonnes{

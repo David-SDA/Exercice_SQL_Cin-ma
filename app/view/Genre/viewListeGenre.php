@@ -21,6 +21,7 @@
                 ?>
             </tbody>
         </table>
+        <a href="index.php?action=ajouterGenre" class="bouton">+</a>
     </div>
 
 <?php
