@@ -192,3 +192,7 @@ a{
     color: #fff;
     cursor: pointer;
 }
+
+.nomChamp{
+    margin-top: 1vh;
+}
