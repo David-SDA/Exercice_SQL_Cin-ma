@@ -35,7 +35,7 @@
     </div>
 
 <?php
-    $titre = "Ajouter un rôle";
+    $titre = "Ajouter un réalisateur";
     $contenu = ob_get_clean();
     require("view/template.php");
 ?>
