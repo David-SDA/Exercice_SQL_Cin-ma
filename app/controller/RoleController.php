@@ -1,18 +1,18 @@
 <?php
-    require_once("model/Model.php");
+    require_once("model/Connect.php");
 
     /* On crée un contrôleur pour gérer les action en rapport aux rôles */
     class RoleController{
 
         public function listerRoles(){
-            $donnee = new Model();
+            $donnee = new Connect();
             $requete = "SELECT nom_role FROM role";
             $roles = $donnee->executerRequete($requete);
             require("view/Role/viewListeRole.php");
         }
 
         public function detailsRole(){
-            $donnee = new Model();
+            $donnee = new Connect();
             $requeteRole = "SELECT nom_role FROM role WHERE id_role = ". $_GET["id"];
             $role = $donnee->executerRequeteUneLigne($requeteRole);
             

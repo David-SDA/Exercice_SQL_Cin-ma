@@ -1,11 +1,11 @@
 <?php
-    require_once("model/Model.php");
+    require_once("model/Connect.php");
 
     /* On crée un contrôleur pour gérer les action en rapport aux acteurs */
     class ActeurController{
 
         public function listerActeurs(){
-            $donnee = new Model();
+            $donnee = new Connect();
             $requete = "SELECT p.prenom, p.nom, p.sexe, DATE_FORMAT(p.date_naissance, '%d/%m/%Y') AS date_naissance
                         FROM personne p, acteur a
                         WHERE p.id_personne = a.id_personne";
@@ -14,7 +14,7 @@
         }
 
         public function detailsActeur(){
-            $donnee = new Model();
+            $donnee = new Connect();
             $requeteActeur = "SELECT p.prenom, p.nom, p.sexe, DATE_FORMAT(p.date_naissance, '%d/%m/%Y') AS date_naissance
                                    FROM acteur a, personne p
                                    WHERE a.id_personne = p.id_personne

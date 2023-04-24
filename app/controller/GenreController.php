@@ -1,18 +1,18 @@
 <?php
-    require_once("model/Model.php");
+    require_once("model/Connect.php");
 
     /* On crée un contrôleur pour gérer les action en rapport aux genres */
     class GenreController{
         
         public function listerGenres(){
-            $donnee = new Model();
+            $donnee = new Connect();
             $requete = "SELECT libelle FROM genre";
             $genres = $donnee->executerRequete($requete);
             require("view/Genre/viewListeGenre.php");
         }
 
         public function detailsGenre(){
-            $donnee = new Model();
+            $donnee = new Connect();
             $requeteGenre = "SELECT libelle FROM genre WHERE id_genre = ". $_GET["id"];
             $genre = $donnee->executerRequeteUneLigne($requeteGenre);
             
