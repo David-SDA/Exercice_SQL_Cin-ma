@@ -1,5 +1,6 @@
 <?php
-    require_once("model/Connect.php");
+    namespace Controller;
+    use Model\Connect;
 
     /* On crée un contrôleur pour gérer les action en rapport aux rôles */
     class RoleController{
