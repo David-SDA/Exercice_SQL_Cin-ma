@@ -6,25 +6,22 @@
     class RoleController{
 
         public function listerRoles(){
-            $donnee = new Connect();
-            $requete = "SELECT nom_role FROM role";
-            $roles = $donnee->executerRequete($requete);
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->query("SELECT nom_role FROM role");
             require("view/Role/viewListeRole.php");
         }
 
         public function detailsRole(){
-            $donnee = new Connect();
-            $requeteRole = "SELECT nom_role FROM role WHERE id_role = ". $_GET["id"];
-            $role = $donnee->executerRequeteUneLigne($requeteRole);
+            $pdo = Connect::seConnecter();
+            $requeteRole = $pdo->query("SELECT nom_role FROM role WHERE id_role = ". $_GET["id"]);
             
-            $requeteActeur = "SELECT f.titre, p.prenom, p.nom
+            $requeteActeur = $pdo->query("SELECT f.titre, p.prenom, p.nom
                             FROM film f, jouer j, role r, acteur a, personne p
                             WHERE f.id_film = j.id_film
                             AND j.id_role = r.id_role
                             AND j.id_acteur = a.id_acteur 
                             AND a.id_personne = p.id_personne
-                            AND r.id_role = " . $_GET["id"];
-            $acteursDansRole = $donnee->executerRequete($requeteActeur);
+                            AND r.id_role = " . $_GET["id"]);
             require("view/Role/viewDetailsRole.php");
         }
     }

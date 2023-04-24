@@ -10,7 +10,7 @@
             <tbody>
                 <?php
                     $i = 1;
-                    foreach($roles as $role){
+                    foreach($requete->fetchAll() as $role){
                 ?>
                     <tr>
                         <td><a href="index.php?action=detailsRole&id=<?= $i ?>" class="lienListe"><?= $role["nom_role"] ?></a></td>
