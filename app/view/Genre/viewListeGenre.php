@@ -10,7 +10,7 @@
             <tbody>
                 <?php
                     $i = 1;
-                    foreach($genres as $genre){
+                    foreach($requete->fetchAll() as $genre){
                 ?>
                     <tr>
                         <td><a href="index.php?action=detailsGenre&id=<?= $i ?>" class="lienListe"><?= $genre["libelle"] ?></a></td>

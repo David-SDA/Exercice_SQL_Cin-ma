@@ -17,7 +17,7 @@
     $ctrlActeur = new ActeurController();
     $ctrlRealisateur = new RealisateurController();
     $ctrlRole = new RoleController();
-    $controleurGenre = new GenreController();
+    $ctrlGenre = new GenreController();
 
     /* Si on a une action définie */
     if(isset($_GET['action'])){
