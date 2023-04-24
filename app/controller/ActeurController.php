@@ -28,6 +28,10 @@
             require("view/Acteur/viewDetailsActeur.php");
         }
 
+        public function pageAjouterActeur(){
+            require("view/Acteur/viewAjouterActeur.php");
+        }
+
     }
 
 ?>

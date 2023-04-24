@@ -35,6 +35,7 @@
                 ?>
             </tbody>
         </table>
+        <a href="index.php?action=pageAjouterActeur" class="bouton">+</a>
     </div>
 
 <?php

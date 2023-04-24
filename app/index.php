@@ -39,6 +39,10 @@
             case "detailsActeur": // détails d'un acteur
                 $ctrlActeur->detailsActeur();
                 break;
+            
+            case "pageAjouterActeur": // aller à la page pour ajouter un acteur
+                $ctrlActeur->pageAjouterActeur();
+                break;
 
             /* Action pour les réalisateurs */
             case "listerRealisateurs": // lister les réalisateurs
