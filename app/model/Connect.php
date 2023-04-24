@@ -1,7 +1,7 @@
 <?php
     
     /* On crée le modèle pour gérer l'accès à la base de données */
-    class Model{
+    class Connect{
         private $bdd; // La variable qui contiendra la base de données
 
         /* Méthode __construct de la classe (créer le lien avec la base de données) */
