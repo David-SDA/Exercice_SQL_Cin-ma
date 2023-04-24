@@ -3,6 +3,9 @@
 ?>
 
     <article class="info">
+        <?php
+            $film = $requeteFilm->fetch();
+        ?>
         <h2><?= $film["titre"] . " (" . $film["annee_sortie"] . ")" ?></h2>
         <div class="details">
             <div class="detailsFilm">
@@ -22,7 +25,7 @@
                 <p>
                     Genre : 
                     <?php
-                        foreach($genres as $genre){
+                        foreach($requeteGenre->fetchAll() as $genre){
                             echo $genre["libelle"] . " ";
                         }
                     ?>
@@ -56,7 +59,7 @@
         <article>
             <h3>Casting</h3>
             <?php
-                foreach($acteurs as $acteur){
+                foreach($requeteActeur->fetchAll() as $acteur){
                     echo "<p>- " . $acteur["prenom"] . " " . $acteur["nom"] . " dans le rôle de " . $acteur["nom_role"] . "</p>";
                 }
             ?>

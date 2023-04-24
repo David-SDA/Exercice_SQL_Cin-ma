@@ -5,7 +5,7 @@
     <div class="tableau">
         <table>
             <thead>
-                <th colspan="3">LISTE DES FILMS</th>
+                <th colspan="6">LISTE DES FILMS</th>
             </thead>
             <tbody>
                 <tr class="titreColonnes">
@@ -18,7 +18,7 @@
                 </tr>
                 <?php
                     $i = 1;
-                    foreach($films as $film){
+                    foreach($requete->fetchAll() as $film){
                 ?>
                     <tr class="ligne">
                         <td>
