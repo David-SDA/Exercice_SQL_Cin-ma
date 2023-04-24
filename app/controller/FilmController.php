@@ -39,6 +39,17 @@
             require("view/Film/viewDetailsFilm.php");
         }
 
+        public function pageAjouterFilm(){
+            $pdo = Connect::seConnecter();
+            $requeteRealisateur = $pdo->query("SELECT r.id_realisateur, p.prenom, p.nom
+                                               FROM realisateur r, personne p
+                                               WHERE r.id_personne = p.id_personne");
+
+            $requeteGenre = $pdo->query("SELECT *
+                                         FROM genre g");
+            require("view/Film/viewAjouterFilm.php");
+        }
+
     }
 
 ?>

@@ -63,6 +63,7 @@
                 ?>
             </tbody>
         </table>
+        <a href="index.php?action=pageAjouterFilm" class="bouton">+</a>
     </div>
 
 <?php

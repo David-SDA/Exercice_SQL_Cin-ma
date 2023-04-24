@@ -30,6 +30,10 @@
             case "detailsFilm": // détails d'un film
                 $ctrlFilm->detailsFilm();
                 break;
+            
+            case "pageAjouterFilm": // aller à la page pour ajouter un film
+                $ctrlFilm->pageAjouterFilm();
+                break;
 
             /* Action pour les acteurs */
             case "listerActeurs": // lister les acteurs
