@@ -4,7 +4,7 @@
 
     <div class=formulaire>
         <h2>Ajouter un rôle</h2>
-        <form enctype='multipart/form-data' action="index.php?action=ajouterGenre" method="post">
+        <form enctype='multipart/form-data' action="index.php?action=ajouterRole" method="post">
             <label for="nom_role">Nom du rôle</label>
             <input type="text" name="nom_role" id="nom_role" required>
             <input type="submit" name="submitRole" value="Ajouter le rôle">

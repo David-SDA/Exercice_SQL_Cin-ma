@@ -29,5 +29,17 @@
             require("view/Role/viewAjouterRole.php");
         }
 
+        public function ajouterRole(){
+            if(isset($_POST["submitRole"])){
+                $role = filter_input(INPUT_POST, "nom_role", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                if($role){
+                    $pdo = Connect::seConnecter();
+                    $requete = $pdo->prepare("INSERT INTO role (nom_role) VALUES ('$role')");
+                    $requete->execute();
+                }
+            }
+            require("view/Role/viewAjouterRole.php");
+        }
+
     }
 ?>

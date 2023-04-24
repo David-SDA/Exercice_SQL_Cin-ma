@@ -62,6 +62,10 @@
                 $ctrlRole->pageAjouterRole();
                 break;
 
+            case "ajouterRole": // ajouter un rôle
+                $ctrlRole->ajouterRole();
+                break;
+
             /* Action pour les genres */
             case "listerGenres": // lister les genres
                 $ctrlGenre->listerGenres();
