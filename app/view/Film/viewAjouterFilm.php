@@ -24,26 +24,25 @@
             <input type="number" name="note" id="note" min="0" max ="20">
 
             <label for="realisateurFilm" class="nomChamp">Réalisateur* :</label>
-            <select name="realisateurFilm" id="realisateurFilm">
+            <select name="realisateurFilm" id="realisateurFilm" required>
                 <?php
                     foreach($requeteRealisateur->fetchAll() as $realisateur){
                 ?>
-                    <option value="<?= $realisateur["id_realisateur"] ?>"><?= $realisateur["prenom"] . " " . $realisateur["nom"] ?></option>
+                    <option value="<?= $realisateur["prenom"] . "_" . $realisateur["nom"] ?>"><?= $realisateur["prenom"] . " " . $realisateur["nom"] ?></option>
                 <?php
                     }
                 ?>
             </select>
             
             <label for="genreFilm" class="nomChamp">Genre* :</label>
-            <div>
-                <input type="checkbox" name="genreFilm" id="genreFilm">
-                <label for="genreFilm">test1</label>
-            </div>
-            <div>
-                <input type="checkbox" name="genreFilm" id="genreFilm">
-                <label for="genreFilm">test2</label>
-            </div>
-
+            <select name="genreFilm" id="genreFilm" multiple required>
+            <?php
+                foreach($requeteGenre->fetchAll() as $genre){
+            ?>
+                <option value="<?= $genre["libelle"] ?>"><?= $genre["libelle"] ?></option>
+            <?php
+                }
+            ?>
             <input type="submit" name="submitActeur" value="Ajouter l'acteur">
         </form>
     </div>
