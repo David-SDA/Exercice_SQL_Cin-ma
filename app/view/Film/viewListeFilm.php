@@ -22,7 +22,7 @@
                 ?>
                     <tr class="ligne">
                         <td>
-                            <a href="#" class="lienListe"><?= $film["titre"] ?></a>
+                            <a href="index.php?action=detailsFilm&id=<?= $i ?>" class="lienListe"><?= $film["titre"] ?></a>
                         </td>
                         <td>
                             <?= $film["annee_sortie"] ?>

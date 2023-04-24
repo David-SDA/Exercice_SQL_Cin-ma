@@ -106,7 +106,7 @@ a{
 }
 
 /**************************/
-/* style des informations */
+/* Style des informations */
 /**************************/
 
 .info{
@@ -127,4 +127,14 @@ a{
 .info p{
     text-align: center;
     padding: 5px;
+}
+
+/************************************/
+/* Style des informations d'un film */
+/************************************/
+.details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }

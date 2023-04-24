@@ -23,6 +23,9 @@
             case "listerFilms": // lister les films
                 $controleurFilm->listerFilms();
                 break;
+            case "detailsFilm": // détails d'un film
+                $controleurFilm->detailsFilm();
+                break;
 
             /* Action pour les acteurs */
             case "listerActeurs": // lister les acteurs
