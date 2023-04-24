@@ -26,6 +26,10 @@
                              AND r.id_realisateur = " . $_GET["id"]);
             require("view/Realisateur/viewDetailsRealisateur.php");
         }
+
+        public function pageAjouterRealisateur(){
+            require("view/Realisateur/viewAjouterRealisateur.php");
+        }
     }
 
 ?>

@@ -48,6 +48,10 @@
             case "detailsRealisateur": // détails d'un réalisateur
                 $ctrlRealisateur->detailsRealisateur();
                 break;
+            
+            case "pageAjouterRealisateur": // aller à la page pour ajouter un réalisateur
+                $ctrlRealisateur->pageAjouterRealisateur();
+                break;
 
             /* Action pour les rôles */
             case "listerRoles": // lister les rôles
