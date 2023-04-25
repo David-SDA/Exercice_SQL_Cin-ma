@@ -2,6 +2,7 @@
     ob_start();
 ?>
 
+    <!-- Affichage des détails d'un rôle -->
     <div class="info">
         <?php
             $role = $requeteRole->fetch();

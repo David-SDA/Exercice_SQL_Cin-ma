@@ -1,7 +1,7 @@
 <?php
     ob_start();
 ?>
-
+    <!-- Formulaire d'ajout d'un genre -->
     <div class=formulaire>
         <h2>Ajouter un genre</h2>
         <form enctype='multipart/form-data' action="index.php?action=ajouterGenre" method="post">

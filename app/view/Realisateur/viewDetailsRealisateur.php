@@ -2,6 +2,7 @@
     ob_start();
 ?>
 
+    <!-- Affichage des détails d'un réalisateur -->
     <div class="info">
         <?php
             $realisateur = $requeteRealisateur->fetch();

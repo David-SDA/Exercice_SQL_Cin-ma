@@ -2,6 +2,7 @@
     ob_start();
 ?>
 
+    <!-- Affichage des détails d'un genre -->
     <div class="info">
         <?php
             $genre = $requeteGenre->fetch();

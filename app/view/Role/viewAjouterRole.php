@@ -2,6 +2,7 @@
     ob_start();
 ?>
 
+    <!-- Formulaire d'ajout d'un rôle -->
     <div class=formulaire>
         <h2>Ajouter un rôle</h2>
         <form enctype='multipart/form-data' action="index.php?action=ajouterRole" method="post">

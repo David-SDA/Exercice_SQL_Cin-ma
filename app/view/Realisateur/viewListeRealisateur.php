@@ -2,6 +2,7 @@
     ob_start();
 ?>
 
+    <!-- Affichage de la liste des réalisateurs -->
     <div class="tableau">
         <table>
             <thead>
