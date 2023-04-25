@@ -30,7 +30,7 @@
                 $ctrlFilm->listerFilms();
                 break;
             case "detailsFilm": // détails d'un film
-                $ctrlFilm->detailsFilm();
+                $ctrlFilm->detailsFilm($id);
                 break;
             
             case "pageAjouterFilm": // aller à la page pour ajouter un film
@@ -72,7 +72,7 @@
                 break;
             
             case "detailsRealisateur": // détails d'un réalisateur
-                $ctrlRealisateur->detailsRealisateur();
+                $ctrlRealisateur->detailsRealisateur($id);
                 break;
             
             case "pageAjouterRealisateur": // aller à la page pour ajouter un réalisateur
@@ -89,7 +89,7 @@
                 break;
             
             case "detailsRole": // détails d'un rôle
-                $ctrlRole->detailsRole();
+                $ctrlRole->detailsRole($id);
                 break;
             
             case "pageAjouterRole": // aller à la page pour ajouter un rôle
@@ -106,7 +106,7 @@
                 break;
             
             case "detailsGenre": // détails d'un genre
-                $ctrlGenre->detailsGenre();
+                $ctrlGenre->detailsGenre($id);
                 break;
             
             case "pageAjouterGenre": // aller à la page pour ajouter un genre
