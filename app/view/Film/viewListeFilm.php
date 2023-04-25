@@ -18,12 +18,11 @@
                     <td>Réalisateur</td>
                 </tr>
                 <?php
-                    $i = 1;
                     foreach($requete->fetchAll() as $film){
                 ?>
                     <tr class="ligne">
                         <td>
-                            <a href="index.php?action=detailsFilm&id=<?= $i ?>" class="lienListe"><?= $film["titre"] ?></a>
+                            <a href="index.php?action=detailsFilm&id=<?= $film["id_film"] ?>" class="lienListe"><?= $film["titre"] ?></a>
                         </td>
                         <td>
                             <?= $film["annee_sortie"] ?>
@@ -59,7 +58,6 @@
                     </tr>
                 
                 <?php
-                    $i++;
                 }
                 ?>
             </tbody>

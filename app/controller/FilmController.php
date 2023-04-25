@@ -7,7 +7,7 @@
         /* Fonction de listage des films */
         public function listerFilms(){
             $pdo = Connect::seConnecter();
-            $requete = $pdo->query("SELECT f.titre, f.annee_sortie, TIME_FORMAT(SEC_TO_TIME(f.duree*60), '%H h %i') AS duree, f.synopsis, f.note, p.prenom, p.nom
+            $requete = $pdo->query("SELECT f.id_film, f.titre, f.annee_sortie, TIME_FORMAT(SEC_TO_TIME(f.duree*60), '%H h %i') AS duree, f.synopsis, f.note, p.prenom, p.nom
                         FROM film f, realisateur r, personne p
                         WHERE f.id_realisateur = r.id_realisateur
                         AND r.id_personne = p.id_personne");
@@ -84,20 +84,19 @@
                 $duree = filter_input(INPUT_POST, "duree", FILTER_SANITIZE_NUMBER_INT);
                 $synopsis = filter_input(INPUT_POST, "synopsis", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $note = filter_input(INPUT_POST, "note", FILTER_SANITIZE_NUMBER_INT);
-
                 $realisateurFilm = filter_input(INPUT_POST, "realisateurFilm", FILTER_SANITIZE_NUMBER_INT);
 
                 $genreFilm = filter_input(INPUT_POST, "genreFilm", FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
 
                 $pdo = Connect::seConnecter();
                 $requeteFilm = $pdo->prepare("INSERT INTO film (titre, annee_sortie, duree, synopsis, note, affiche, id_realisateur)
-                                            VALUES (:titre, :annee_sortie, :duree, :synopsis, :note, :cheminImage, :realisateurFilm");
+                                            VALUES (:titre, :annee_sortie, :duree, :synopsis, :note, :cheminImage, :realisateurFilm)");
                 $requeteFilm->execute([
                     'titre' => $titre,
                     'annee_sortie' => $annee_sortie,
                     'duree' => $duree,
                     'synopsis' => $synopsis,
-                    'note' => $note,
+                    'note' => intval($note),
                     'cheminImage' => $cheminImage,
                     'realisateurFilm' => $realisateurFilm
                 ]);

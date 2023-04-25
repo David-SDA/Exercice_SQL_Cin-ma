@@ -16,7 +16,7 @@
             <input type="number" name="duree" id="duree" min="0" value="0" required>
             
             <label for="synopsis" class="nomChamp">Synopsis :</label>
-            <input type="text" name="synopsis" id="synopsis">
+            <textarea name="synopsis" id="synopsis" cols="100" rows="10"></textarea>
 
             <label for="affiche" class="nomChamp">Affiche :</label>
             <input type="file" name="affiche" id="affiche">
