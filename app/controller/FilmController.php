@@ -79,6 +79,7 @@
                 $duree = filter_input(INPUT_POST, "duree", FILTER_SANITIZE_NUMBER_INT);
                 $synopsis = filter_input(INPUT_POST, "synopsis", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $note = filter_input(INPUT_POST, "note", FILTER_SANITIZE_NUMBER_INT);
+
                 $realisateurFilm = filter_input(INPUT_POST, "realisateurFilm", FILTER_SANITIZE_NUMBER_INT);
 
                 $genreFilm = filter_input(INPUT_POST, "genreFilm", FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
@@ -86,7 +87,7 @@
                 $pdo = Connect::seConnecter();
                 $requeteFilm = $pdo->query("INSERT INTO film (titre, annee_sortie, duree, synopsis, note, affiche, id_realisateur)
                                             VALUES ('$titre', " . intval($annee_sortie) . ", " . intval($duree) . ", '$synopsis', " . intval($note) . ", '$cheminImage', " . intval($realisateurFilm) . ")");
-                
+                                            
             }
             require("view/Accueil/viewAccueil.php");
         }

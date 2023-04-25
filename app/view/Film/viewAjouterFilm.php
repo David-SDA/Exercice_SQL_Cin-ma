@@ -21,7 +21,7 @@
             <input type="file" name="affiche" id="affiche">
 
             <label for="note" class="nomChamp">Note :</label>
-            <input type="number" name="note" id="note" min="0" max ="20">
+            <input type="number" name="note" id="note" min="1" max ="20">
 
             <label for="realisateurFilm" class="nomChamp">Réalisateur* :</label>
             <select name="realisateurFilm" id="realisateurFilm" required>
