@@ -62,7 +62,7 @@
                     }
                 }
             }
-            require("view/Acteur/viewAjouterActeur.php");
+            require("view/Accueil/viewAccueil.php");
         }
     }
 

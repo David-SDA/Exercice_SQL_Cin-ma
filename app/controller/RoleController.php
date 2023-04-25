@@ -41,7 +41,7 @@
                     $requete->execute();
                 }
             }
-            require("view/Role/viewAjouterRole.php");
+            require("view/Accueil/viewAccueil.php");
         }
 
     }

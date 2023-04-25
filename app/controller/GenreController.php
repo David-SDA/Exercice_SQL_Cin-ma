@@ -40,7 +40,7 @@
                     $requete->execute();
                 }
             }
-            require("view/Genre/viewAjouterGenre.php");
+            require("view/Accueil/viewAccueil.php");
         }
     }
 

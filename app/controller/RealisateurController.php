@@ -61,7 +61,7 @@
                     }
                 }
             }
-            require("view/Realisateur/viewAjouterRealisateur.php");
+            require("view/Accueil/viewAccueil.php");
         }
     }
 
