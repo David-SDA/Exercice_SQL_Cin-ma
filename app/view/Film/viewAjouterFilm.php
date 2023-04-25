@@ -2,6 +2,7 @@
     ob_start();
 ?>
 
+    <!-- Formulaire d'ajout d'un film -->
     <div class=formulaire>
         <h2>Ajouter un film</h2>
         <form enctype='multipart/form-data' action="index.php?action=ajouterFilm" method="post">

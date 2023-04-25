@@ -2,15 +2,17 @@
     namespace Controller;
     use Model\Connect;
 
-    /* On crée un contrôleur pour gérer les action en rapport aux genres */
+    /* On crée un contrôleur pour gérer les actions en rapport aux genres */
     class GenreController{
         
+        /* Fonction d'ajout d'un genre */
         public function listerGenres(){
             $pdo = Connect::seConnecter();
             $requete = $pdo->query("SELECT libelle FROM genre");
             require("view/Genre/viewListeGenre.php");
         }
 
+        /* Fonction d'obtention des détails d'un genre */
         public function detailsGenre(){
             $pdo = Connect::seConnecter();
             $requeteGenre = $pdo->query("SELECT libelle FROM genre WHERE id_genre = ". $_GET["id"]);
@@ -23,10 +25,12 @@
             require("view/Genre/viewDetailsGenre.php");
         }
 
+        /* Fonction permettant d'aller à la page d'ajout d'un genre */
         public function pageAjouterGenre(){
             require("view/Genre/viewAjouterGenre.php");
         }
 
+        /* Fonction d'ajout d'un genre */
         public function ajouterGenre(){
             if(isset($_POST["submitGenre"])){
                 $genre = filter_input(INPUT_POST, "nom_genre", FILTER_SANITIZE_FULL_SPECIAL_CHARS);

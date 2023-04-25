@@ -2,6 +2,7 @@
     ob_start();
 ?>
 
+    <!-- Affichage des détails d'un film -->
     <article class="info">
         <?php
             $film = $requeteFilm->fetch();

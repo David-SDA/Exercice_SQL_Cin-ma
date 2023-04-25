@@ -7,6 +7,7 @@
         const USER = "root";
         const PASS = "";
 
+        /* Fonction permettant de se connecter à la base de donnée */
         public static function seConnecter(){
             try{
                 return new \PDO("mysql:host=" . self::HOST . ";dbname=" . self::DB . ";charset=utf8", self::USER, self ::PASS);

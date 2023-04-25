@@ -2,6 +2,7 @@
     ob_start();
 ?>
 
+    <!-- Formulaire d'ajout d'un acteur -->
     <div class=formulaire>
         <h2>Ajouter un acteur</h2>
         <form enctype='multipart/form-data' action="index.php?action=ajouterActeur" method="post">

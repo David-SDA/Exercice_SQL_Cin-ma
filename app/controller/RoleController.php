@@ -2,15 +2,16 @@
     namespace Controller;
     use Model\Connect;
 
-    /* On crée un contrôleur pour gérer les action en rapport aux rôles */
+    /* On crée un contrôleur pour gérer les actions en rapport aux rôles */
     class RoleController{
-
+        /* Fonction de listage des rôles */
         public function listerRoles(){
             $pdo = Connect::seConnecter();
             $requete = $pdo->query("SELECT nom_role FROM role");
             require("view/Role/viewListeRole.php");
         }
 
+        /* Fonction d'obtention des détails d'un rôle */
         public function detailsRole(){
             $pdo = Connect::seConnecter();
             $requeteRole = $pdo->query("SELECT nom_role FROM role WHERE id_role = ". $_GET["id"]);
@@ -25,10 +26,12 @@
             require("view/Role/viewDetailsRole.php");
         }
 
+        /* Fonction permettant d'aller à la page d'ajout d'un rôle */
         public function pageAjouterRole(){
             require("view/Role/viewAjouterRole.php");
         }
 
+        /* Fonction d'ajout d'un rôle */
         public function ajouterRole(){
             if(isset($_POST["submitRole"])){
                 $role = filter_input(INPUT_POST, "nom_role", FILTER_SANITIZE_FULL_SPECIAL_CHARS);

@@ -2,6 +2,7 @@
     ob_start();
 ?>
 
+    <!-- Affichage des détails d'un acteur -->
     <div class="info">
         <?php
            $acteur = $requeteActeur->fetch();

@@ -2,6 +2,7 @@
     ob_start();
 ?>
 
+    <!-- Formulaire d'association entre un acteur, un rôle et un film -->
     <div class=formulaire>
         <h2>Ajouter d'un acteur à un casting</h2>
         <form enctype='multipart/form-data' action="index.php?action=ajouterCasting" method="post">

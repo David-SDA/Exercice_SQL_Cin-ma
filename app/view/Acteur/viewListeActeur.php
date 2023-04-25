@@ -2,6 +2,7 @@
     ob_start();
 ?>
 
+    <!-- Affichage de la liste des acteurs -->
     <div class="tableau">
         <table>
             <thead>

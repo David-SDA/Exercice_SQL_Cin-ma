@@ -2,6 +2,7 @@
     ob_start();
 ?>
 
+    <!-- Affichage de la liste de films -->
     <div class="tableau">
         <table>
             <thead>

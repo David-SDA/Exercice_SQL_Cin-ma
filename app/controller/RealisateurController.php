@@ -2,9 +2,9 @@
     namespace Controller;
     use Model\Connect;
 
-    /* On crée un contrôleur pour gérer les action en rapport aux réalisateurs */
+    /* On crée un contrôleur pour gérer les actions en rapport aux réalisateurs */
     class RealisateurController{
-
+        /* Fonction de listage des réalisateurs */
         public function listerRealisateurs(){
             $pdo = Connect::seConnecter();
             $requete = $pdo->query("SELECT p.prenom, p.nom, p.sexe, DATE_FORMAT(p.date_naissance, '%d/%m/%Y') AS date_naissance
@@ -13,6 +13,7 @@
             require("view/Realisateur/viewListeRealisateur.php");
         }
 
+        /* Fonction d'obtention des détails d'un réalisateur */
         public function detailsRealisateur(){
             $pdo = Connect::seConnecter();
             $requeteRealisateur = $pdo->query("SELECT p.prenom, p.nom, p.sexe, DATE_FORMAT(p.date_naissance, '%d/%m/%Y') AS date_naissance
@@ -27,10 +28,12 @@
             require("view/Realisateur/viewDetailsRealisateur.php");
         }
 
+        /* Fonction permettant d'aller à la page d'ajout d'un réalisateur */
         public function pageAjouterRealisateur(){
             require("view/Realisateur/viewAjouterRealisateur.php");
         }
 
+        /* Fonction permettant d'ajouter un réalisateur */
         public function ajouterRealisateur(){
             if(isset($_POST["submitRealisateur"])){
 

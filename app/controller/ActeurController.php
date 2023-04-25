@@ -2,9 +2,9 @@
     namespace Controller;
     use Model\Connect;
 
-    /* On crée un contrôleur pour gérer les action en rapport aux acteurs */
+    /* On crée un contrôleur pour gérer les actions en rapport aux acteurs */
     class ActeurController{
-
+        /* Fonction de listage des acteurs */
         public function listerActeurs(){
             $pdo = Connect::seConnecter();
             $requete = $pdo->query("SELECT p.prenom, p.nom, p.sexe, DATE_FORMAT(p.date_naissance, '%d/%m/%Y') AS date_naissance
@@ -13,6 +13,7 @@
             require("view/Acteur/viewListeActeur.php");
         }
 
+        /* Fonction d'obtention des détails d'un acteur */
         public function detailsActeur(){
             $pdo = Connect::seConnecter();
             $requeteActeur = $pdo->query("SELECT p.prenom, p.nom, p.sexe, DATE_FORMAT(p.date_naissance, '%d/%m/%Y') AS date_naissance
@@ -28,10 +29,12 @@
             require("view/Acteur/viewDetailsActeur.php");
         }
 
+        /* Fonction permettant d'aller à la page pour ajouter un acteur */
         public function pageAjouterActeur(){
             require("view/Acteur/viewAjouterActeur.php");
         }
 
+        /* Fonction d'ajout un acteur */
         public function ajouterActeur(){
             if(isset($_POST["submitActeur"])){
 

@@ -2,9 +2,9 @@
     namespace Controller;
     use Model\Connect;
 
-    /* On crée un contrôleur pour gérer les action en rapport aux films */
+    /* On crée un contrôleur pour gérer les actions en rapport aux films */
     class FilmController{
-
+        /* Fonction de listage des films */
         public function listerFilms(){
             $pdo = Connect::seConnecter();
             $requete = $pdo->query("SELECT f.titre, f.annee_sortie, TIME_FORMAT(SEC_TO_TIME(f.duree*60), '%H h %i') AS duree, f.synopsis, f.note, p.prenom, p.nom
@@ -14,6 +14,7 @@
             require("view/Film/viewListeFilm.php");
         }
         
+        /* Fonction d'obtention des détails d'un film */
         public function detailsFilm(){
             $pdo = Connect::seConnecter();
             $requeteFilm = $pdo->query("SELECT f.titre, f.annee_sortie, TIME_FORMAT(SEC_TO_TIME(f.duree*60), '%H h %i') AS duree, f.synopsis, f.note, f.affiche, p.prenom, p.nom
@@ -39,6 +40,7 @@
             require("view/Film/viewDetailsFilm.php");
         }
 
+        /* Fonction permettant d'aller à la page d'ajout d'un film */
         public function pageAjouterFilm(){
             $pdo = Connect::seConnecter();
             $requeteRealisateur = $pdo->query("SELECT r.id_realisateur, p.prenom, p.nom
@@ -50,6 +52,7 @@
             require("view/Film/viewAjouterFilm.php");
         }
 
+        /* Fonction d'ajout d'un film */
         public function ajouterFilm(){
             if(isset($_POST["submitFilm"])){
                 if(isset($_FILES["affiche"])){
@@ -96,6 +99,7 @@
             require("view/Accueil/viewAccueil.php");
         }
 
+        /* Fonction permettant d'aller à la page d'ajout d'une association entre acteur, rôle et film */
         public function pageAjouterCasting(){
             $pdo = Connect::seConnecter();
             $requeteFilm = $pdo->query("SELECT f.titre
@@ -108,6 +112,7 @@
             require("view/Film/viewAjouterCasting.php");
         }
 
+        /* Fonction d'ajout d'une association entre acteur, rôle, film */
         public function ajouterCasting(){
             if($_POST["submitCasting"]){
 
