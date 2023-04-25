@@ -13,15 +13,17 @@
         }
 
         /* Fonction d'obtention des détails d'un genre */
-        public function detailsGenre(){
+        public function detailsGenre($id){
             $pdo = Connect::seConnecter();
-            $requeteGenre = $pdo->query("SELECT libelle FROM genre WHERE id_genre = ". $_GET["id"]);
+            $requeteGenre = $pdo->prepare("SELECT libelle FROM genre WHERE id_genre = :id");
+            $requeteGenre->execute(["id" => $id]);
             
-            $requeteFilm = $pdo->query("SELECT f.titre
+            $requeteFilm = $pdo->prepare("SELECT f.titre
                             FROM posseder p, film f, genre g
                             WHERE p.id_film = f.id_film
                             AND p.id_genre = g.id_genre
-                            AND g.id_genre = " . $_GET["id"]);
+                            AND g.id_genre = :id");
+            $requeteFilm->execute(["id" => $id]);
             require("view/Genre/viewDetailsGenre.php");
         }
 
@@ -36,8 +38,8 @@
                 $genre = filter_input(INPUT_POST, "nom_genre", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 if($genre){
                     $pdo = Connect::seConnecter();
-                    $requete = $pdo->prepare("INSERT INTO genre (libelle) VALUES ('$genre')");
-                    $requete->execute();
+                    $requete = $pdo->prepare("INSERT INTO genre (libelle) VALUES (:genre)");
+                    $requete->execute(["genre" => $genre]);
                 }
             }
             require("view/Accueil/viewAccueil.php");
