@@ -15,27 +15,30 @@
         }
         
         /* Fonction d'obtention des détails d'un film */
-        public function detailsFilm(){
+        public function detailsFilm($id){
             $pdo = Connect::seConnecter();
-            $requeteFilm = $pdo->query("SELECT f.titre, f.annee_sortie, TIME_FORMAT(SEC_TO_TIME(f.duree*60), '%H h %i') AS duree, f.synopsis, f.note, f.affiche, p.prenom, p.nom
+            $requeteFilm = $pdo->prepare("SELECT f.titre, f.annee_sortie, TIME_FORMAT(SEC_TO_TIME(f.duree*60), '%H h %i') AS duree, f.synopsis, f.note, f.affiche, p.prenom, p.nom
                             FROM film f, realisateur r, personne p
                             WHERE f.id_realisateur = r.id_realisateur
                             AND r.id_personne = p.id_personne
-                            AND f.id_film = ". $_GET["id"]);
+                            AND f.id_film = :id");
+            $requeteFilm->execute(["id" => $id]);
 
-            $requeteGenre = $pdo->query("SELECT f.titre, g.libelle
+            $requeteGenre = $pdo->prepare("SELECT f.titre, g.libelle
                              FROM film f, posseder p, genre g
                              WHERE f.id_film = p.id_film
                              AND p.id_genre = g.id_genre
-                             AND f.id_film = " . $_GET["id"]);
+                             AND f.id_film = :id");
+            $requeteGenre->execute(["id" => $id]);
 
-            $requeteActeur = $pdo->query("SELECT r.nom_role, p.prenom, p.nom
+            $requeteActeur = $pdo->prepare("SELECT r.nom_role, p.prenom, p.nom
                               FROM film f, jouer j, role r, acteur a, personne p
                               WHERE f.id_film = j.id_film
                               AND j.id_role = r.id_role
                               AND j.id_acteur = a.id_acteur
                               AND a.id_personne = p.id_personne
-                              AND f.id_film = " . $_GET["id"]);
+                              AND f.id_film = :id");
+            $requeteActeur->execute(["id" => $id]);
             
             require("view/Film/viewDetailsFilm.php");
         }
@@ -87,13 +90,26 @@
                 $genreFilm = filter_input(INPUT_POST, "genreFilm", FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
 
                 $pdo = Connect::seConnecter();
-                $requeteFilm = $pdo->query("INSERT INTO film (titre, annee_sortie, duree, synopsis, note, affiche, id_realisateur)
-                                            VALUES ('$titre', " . intval($annee_sortie) . ", " . intval($duree) . ", '$synopsis', " . intval($note) . ", '$cheminImage', " . intval($realisateurFilm) . ")");
+                $requeteFilm = $pdo->prepare("INSERT INTO film (titre, annee_sortie, duree, synopsis, note, affiche, id_realisateur)
+                                            VALUES (:titre, :annee_sortie, :duree, :synopsis, :note, :cheminImage, :realisateurFilm");
+                $requeteFilm->execute([
+                    'titre' => $titre,
+                    'annee_sortie' => $annee_sortie,
+                    'duree' => $duree,
+                    'synopsis' => $synopsis,
+                    'note' => $note,
+                    'cheminImage' => $cheminImage,
+                    'realisateurFilm' => $realisateurFilm
+                ]);
 
-                $id = $pdo->lastInsertId();
+                $idLast = $pdo->lastInsertId();
                 foreach($genreFilm as $genre){
-                    $requeteGenre = $pdo->query("INSERT INTO posseder (id_film, id_genre)
-                                                 VALUES ($id, $genre)");
+                    $requeteGenre = $pdo->prepare("INSERT INTO posseder (id_film, id_genre)
+                                                 VALUES (:idLast, :genre)");
+                    $requeteGenre->execute([
+                        'idLast' => $idLast,
+                        'genre' => $genre
+                    ]);
                 }
             }
             require("view/Accueil/viewAccueil.php");
@@ -122,8 +138,13 @@
                 
                 if($film && $acteur && $role){
                     $pdo = Connect::seConnecter();
-                    $requete = $pdo->query("INSERT INTO jouer (id_film, id_acteur, id_role)
-                                            VALUES (" . $_POST["film"] . ", " . $_POST["acteur"] . ", " . $_POST["role"] . " )");
+                    $requete = $pdo->prepare("INSERT INTO jouer (id_film, id_acteur, id_role)
+                                            VALUES (:film, :acteur, :role)");
+                    $requete->execute([
+                        'film' => $film,
+                        'acteur' => $acteur,
+                        'role' => $role
+                    ]);
                 }
             }
             require("view/Accueil/viewAccueil.php");
