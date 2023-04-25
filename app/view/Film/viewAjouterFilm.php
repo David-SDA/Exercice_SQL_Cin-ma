@@ -36,7 +36,7 @@
                 ?>
             </select>
             
-            <label for="genreFilm" class="nomChamp">Genre* :</label>
+            <label for="genreFilm[]" class="nomChamp">Genre* :</label>
             <select name="genreFilm[]" id="genreFilm" multiple required>
             <?php
                 $i = 1;
@@ -47,7 +47,7 @@
                     $i++;
                 }
             ?>
-            <input type="submit" name="submitActeur" value="Ajouter l'acteur">
+            <input type="submit" name="submitFilm" value="Ajouter le film">
         </form>
     </div>
 
