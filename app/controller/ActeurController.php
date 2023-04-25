@@ -14,18 +14,20 @@
         }
 
         /* Fonction d'obtention des détails d'un acteur */
-        public function detailsActeur(){
+        public function detailsActeur($id){
             $pdo = Connect::seConnecter();
-            $requeteActeur = $pdo->query("SELECT p.prenom, p.nom, p.sexe, DATE_FORMAT(p.date_naissance, '%d/%m/%Y') AS date_naissance
+            $requeteActeur = $pdo->prepare("SELECT p.prenom, p.nom, p.sexe, DATE_FORMAT(p.date_naissance, '%d/%m/%Y') AS date_naissance
                                           FROM acteur a, personne p
                                           WHERE a.id_personne = p.id_personne
-                                          AND a.id_acteur = " . $_GET["id"]);
+                                          AND a.id_acteur = :id");
+            $requeteActeur->execute(["id" => $id]);
             
-            $requeteFilms = $pdo->query("SELECT f.titre
+            $requeteFilms = $pdo->prepare("SELECT f.titre
                              FROM acteur a, film f, jouer j
                              WHERE a.id_acteur = j.id_acteur
                              AND j.id_film = f.id_film
-                             AND a.id_acteur = " . $_GET["id"]);
+                             AND a.id_acteur = :id");
+            $requeteFilms->execute(["id" => $id]);
             require("view/Acteur/viewDetailsActeur.php");
         }
 
@@ -47,18 +49,23 @@
                 if($prenom && $nom && $sexe && $date_naissance && $estRealisateur){
                     $pdo = Connect::seConnecter();
                     $requetePersonne = $pdo->prepare("INSERT INTO personne (prenom, nom, sexe, date_naissance)
-                                              VALUES ('$prenom', '$nom', '$sexe', '$date_naissance')");
-                    $requetePersonne->execute();
+                                              VALUES (:prenom, :nom, :sexe, :date_naissance)");
+                    $requetePersonne->execute([
+                        'prenom' => $prenom,
+                        'nom' => $nom,
+                        'sexe' => $sexe,
+                        'date_naissance' => $date_naissance
+                    ]);
 
-                    $id = $pdo->lastInsertId();
+                    $idLast = $pdo->lastInsertId();
                     $requeteActeur = $pdo->prepare("INSERT INTO acteur (id_personne)
-                                                         VALUES ($id)");
-                    $requeteActeur->execute();
+                                                         VALUES (:idLast)");
+                    $requeteActeur->execute(['idLast' => $idLast]);
 
                     if($estRealisateur == "Oui"){
                         $requete = $pdo->prepare("INSERT INTO realisateur (id_personne)
-                                                  VALUES ($id)");
-                        $requete->execute();
+                                                  VALUES (:idLast)");
+                        $requete->execute(['idLast' => $idLast]);
                     }
                 }
             }
