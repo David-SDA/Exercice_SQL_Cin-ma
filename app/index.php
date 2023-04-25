@@ -19,6 +19,8 @@
     $ctrlRole = new RoleController();
     $ctrlGenre = new GenreController();
 
+    $id = (isset($_GET['id'])) ? $_GET["id"] : null;
+
     /* Si on a une action définie */
     if(isset($_GET['action'])){
         /* On effectue un switch sur celle-ci */
@@ -53,7 +55,7 @@
                 break;
 
             case "detailsActeur": // détails d'un acteur
-                $ctrlActeur->detailsActeur();
+                $ctrlActeur->detailsActeur($id);
                 break;
             
             case "pageAjouterActeur": // aller à la page pour ajouter un acteur

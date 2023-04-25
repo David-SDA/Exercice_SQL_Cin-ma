@@ -212,3 +212,20 @@ a{
     border-radius: 5px;
     padding: 5px;
 }
+
+/* Style du message d'ajout */
+.messageAjout{
+    display: block;
+    width: 50px;
+    height: 20px;
+    background-color: #313846;
+    padding: 5px;
+    margin-left: 50vw;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+                rgba(0, 0, 0, 0.12) 0px -12px 30px,
+                rgba(0, 0, 0, 0.12) 0px 4px 6px,
+                rgba(0, 0, 0, 0.17) 0px 12px 13px,
+                rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    opacity: 0;
+    transition: opacity 1s;
+}
