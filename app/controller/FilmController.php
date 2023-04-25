@@ -51,7 +51,6 @@
         }
 
         public function ajouterFilm(){
-            var_dump($_POST);
             if(isset($_POST["submitFilm"])){
                 if(isset($_FILES["affiche"])){
                     $tmpNom = $_FILES["affiche"]["tmp_name"]; // Le nom temporaire du fichier qui sera chargé sur la machine serveur 
@@ -87,7 +86,12 @@
                 $pdo = Connect::seConnecter();
                 $requeteFilm = $pdo->query("INSERT INTO film (titre, annee_sortie, duree, synopsis, note, affiche, id_realisateur)
                                             VALUES ('$titre', " . intval($annee_sortie) . ", " . intval($duree) . ", '$synopsis', " . intval($note) . ", '$cheminImage', " . intval($realisateurFilm) . ")");
-                                            
+
+                $id = $pdo->lastInsertId();
+                foreach($genreFilm as $genre){
+                    $requeteGenre = $pdo->query("INSERT INTO posseder (id_film, id_genre)
+                                                 VALUES ($id, $genre)");
+                }
             }
             require("view/Accueil/viewAccueil.php");
         }
